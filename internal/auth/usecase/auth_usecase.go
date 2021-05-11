@@ -83,7 +83,7 @@ func (authUc *AuthUsecase) Login(c *gin.Context) (*http.Cookie, error) {
 	cookie := &http.Cookie{
 		Name:    "my-secret-cookie",
 		Value:   token,
-		Expires: time.Now().Add(120 * time.Second),
+		Expires: time.Now().Add(240 * time.Second),
 	}
 
 	err = authUc.cacheSessionToken(token, result.Name)

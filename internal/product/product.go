@@ -1,5 +1,7 @@
 package product
 
+import "github.com/gin-gonic/gin"
+
 type Product struct {
 	tableName struct{} `pg:"product"`
 	ID        int      `json:"id" pg:"id,pk"`
@@ -9,4 +11,8 @@ type Product struct {
 
 type ProductRepository interface {
 	GetProducts() ([]*Product, error)
+}
+
+type ProductUseCase interface {
+	GetProducts(*gin.Context) ([]*Product, error)
 }
